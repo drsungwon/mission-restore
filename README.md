@@ -1,15 +1,15 @@
-# 🦊 로그 파일 코드 복원 유틸리티 (Code Restore from Log)
+# 🦊 Mission Python - Code Restore Utility
 
-**특수 형식의 개발 과정 로그 파일로부터 최종 버전의 소스 코드를 완벽하게 복원하는 공식 커맨드 라인 유틸리티입니다.**<br>
-*The official command-line utility for completely restoring the final version of source code from a specially formatted development process log file.*
+**`mission-python` 프레임워크에서 생성된 로그 파일로부터 최종 버전의 소스 코드를 완벽하게 복원하는 공식 커맨드 라인 유틸리티입니다.**<br>
+*The official command-line utility for completely restoring the final version of source code from the `mission-python` framework.*
 
 ---
 
 ## 🚀 프로젝트 개요 (Overview)
 
-특정 개발 환경이나 교육 프레임워크에서는 코드의 작성 과정을 단계별로 기록하기 위해, 초기 버전의 코드와 이후 모든 변경 사항(diff)을 단일 로그 파일에 순차적으로 저장합니다. 이 로그 파일은 코드의 전체 진화 과정을 담고 있는 귀중한 데이터입니다.
+`mission-python` 프로젝트에서는 코드의 작성 과정을 단계별로 기록하기 위해, 초기 버전의 코드와 이후 모든 변경 사항(diff)을 단일 로그 파일에 순차적으로 저장합니다. 이 로그 파일은 코드의 전체 진화 과정을 담고 있는 귀중한 데이터입니다.
 
-본 `code-restorer` 유틸리티는 이 로그 파일을 분석하여, 초기 코드에 기록된 모든 diff 패치를 순서대로 적용함으로써 최종 버전의 소스 코드를 완벽하게 재구성하는 역할을 수행합니다.
+본 `mission-restore` 유틸리티는 이 로그 파일을 분석하여, 초기 코드에 기록된 모든 diff 패치를 순서대로 적용함으로써 최종 버전의 소스 코드를 완벽하게 재구성하는 역할을 수행합니다.
 
 ## ✨ 주요 기능 (Key Features)
 
@@ -32,7 +32,7 @@
 
     ```bash
     git clone [your-repository-url]
-    cd code-restorer
+    cd mission-restore
     ```
 
 2.  **의존성 설치 (Install Dependencies)**
@@ -48,7 +48,7 @@
     복원할 대상인 **개발 과정 로그 파일** (예: `development.log`)을 프로젝트 내 원하는 위치에 준비합니다. `inputs` 디렉토리를 만들어 관리하는 것을 권장합니다.
 
     ```
-    code-restorer/
+    mission-restore/
     ├── inputs/
     │   └── development.log  <-- 여기에 로그 파일을 위치시키세요.
     └── src/
