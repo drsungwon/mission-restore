@@ -96,8 +96,8 @@ def apply_single_diff_robust(source_code: str, diff_content: str) -> str | None:
         str | None: diff 적용이 성공한 경우, 수정된 전체 코드 문자열을 반환합니다.
                     실패(컨텍스트 불일치 등)한 경우, None을 반환합니다.
     """
-    source_lines = source_code.splitlines()
-    diff_lines = diff_content.splitlines()
+    source_lines = source_code.split('\n')
+    diff_lines = diff_content.split('\n')
 
     if not diff_lines:
         return source_code
@@ -215,7 +215,10 @@ def restore_code_from_log(log_file_path: str, output_file_path: str) -> None:
     print_step("1  ] 로그 파일에서 초기 코드와 변경 기록을 파싱합니다...")
     try:
         with open(log_file_path, 'r', encoding='utf-8') as f:
-            log_content = f.read()
+            # [최종 안정성 수정]
+            # 모든 종류의 줄바꿈(CRLF, LF)을 표준 LF(\n)으로 통일합니다.
+            # 이것으로 모든 후속 처리(split, join)에서 발생하는 혼란을 원천 차단합니다.
+            log_content = f.read().replace('\r\n', '\n')
     except Exception as e:
         print_error(f"로그 파일을 읽는 중 문제가 발생했습니다: {e}")
         return
@@ -254,8 +257,11 @@ def restore_code_from_log(log_file_path: str, output_file_path: str) -> None:
             return
             
     try:
+        # [최종 출력 표준화]
+        standardized_final_code = final_code.rstrip() + '\n'
+
         with open(output_file_path, 'w', encoding='utf-8') as f:
-            f.write(final_code)
+            f.write(standardized_final_code)
         print_success(f"최종 복원된 코드를 '{os.path.abspath(output_file_path)}' 파일로 저장했습니다.")
     except IOError as e:
         print_error(f"최종 코드를 파일에 쓰는 중 문제가 발생했습니다: {e}")
