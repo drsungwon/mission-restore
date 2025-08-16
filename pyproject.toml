@@ -1,0 +1,19 @@
+[project]
+name = "mission-restore"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Sungwon Lee",email = "drsungwon@khu.ac.kr"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "mission_restore", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
