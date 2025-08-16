@@ -1,4 +1,4 @@
-# 🦊 Mission Python - Code Restore Utility
+# Mission Python - Code Restore Utility 🦊
 
 **`mission-python` 프레임워크에서 생성된 로그 파일로부터 최종 버전의 소스 코드를 완벽하게 복원하는 공식 커맨드 라인 유틸리티입니다.**<br>
 *The official command-line utility for completely restoring the final version of source code from the `mission-python` framework.*
