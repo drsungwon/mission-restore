@@ -214,7 +214,7 @@ def apply_all_diffs(initial_code: str, diffs: list[str]) -> str | None:
         
     return current_code
 
-def main(log_file_path: str, output_file_path: str) -> None:
+def restore_code_from_log(log_file_path: str, output_file_path: str) -> None:
     """
     스크립트의 메인 로직을 수행하는 함수입니다.
 
@@ -305,7 +305,7 @@ if __name__ == "__main__":
     try:
         args = parser.parse_args()
         # 4. 파싱된 인자를 main 함수에 전달하여 실행
-        main(args.log_file, args.output_file)
+        restore_code_from_log(args.log_file, args.output_file)
     except SystemExit:
         # argparse가 인자 오류로 종료할 때 추가적인 메시지 없이 깔끔하게 종료되도록 합니다.
         pass
